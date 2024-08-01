@@ -1,0 +1,1 @@
+console.log('Footer script 1 loaded');
