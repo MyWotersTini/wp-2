@@ -8,11 +8,11 @@
     </head>
     <body <?php body_class(); ?>>
         <?php wp_body_open(); ?>
-        
+
         <div class="first-line-header">
             <div class="left-section">
-                <span>Телефон: +123456789</span>
-                <span>Email: example@example.com</span>
+                <span>Телефон: <a href="tel:+123456789">+123456789</a></span>
+                <span>Email: <a href="mailto:example@example.com">example@example.com</a></span>
             </div>
             <div class="right-section">
                 <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>

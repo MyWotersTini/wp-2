@@ -69,3 +69,61 @@ function enqueue_custom_scripts() {
 
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
 
+// option page 
+
+function my_plugin_menu() {
+    add_menu_page(
+        'Мої Налаштування',
+        'Налаштування',
+        'manage_options',
+        'my-plugin-settings',
+        'my_plugin_settings_page'
+    );
+}
+add_action('admin_menu', 'my_plugin_menu');
+
+function my_plugin_settings_init() {
+    register_setting('my_plugin_settings_group', 'my_plugin_setting_name');
+
+    add_settings_section(
+        'my_plugin_settings_section',
+        'Моя Секція Налаштувань',
+        'my_plugin_settings_section_callback',
+        'my-plugin-settings'
+    );
+
+    add_settings_field(
+        'my_plugin_setting_name',
+        'Моє Налаштування',
+        'my_plugin_setting_field_callback',
+        'my-plugin-settings',
+        'my_plugin_settings_section'
+    );
+}
+add_action('admin_init', 'my_plugin_settings_init');
+
+function my_plugin_settings_page() {
+    ?>
+    <div class="wrap">
+        <h1>Мої Налаштування</h1>
+        <form action="options.php" method="post">
+            <?php
+            settings_fields('my_plugin_settings_group');
+            do_settings_sections('my-plugin-settings');
+            submit_button('Зберегти Налаштування');
+            ?>
+        </form>
+    </div>
+    <?php
+}
+
+function my_plugin_settings_section_callback() {
+    echo '<p>Опис секції налаштувань.</p>';
+}
+
+function my_plugin_setting_field_callback() {
+    $setting = get_option('my_plugin_setting_name');
+    ?>
+    <input type="text" name="my_plugin_setting_name" value="<?php echo isset($setting) ? esc_attr($setting) : ''; ?>" />
+    <?php
+}
