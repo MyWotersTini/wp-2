@@ -24,17 +24,12 @@ h1{
     z-index: 1000;
 }
 
-.first-line-header .left-section span {
-    margin-right: 15px;
+.first-line-header .left-section{
+    display: flex;
+    gap: 20px;
 }
 
-.first-line-header .right-section a {
-    margin-left: 10px;
-    color: #000;
-    text-decoration: none;
-}
-
-/* start first line footer */
+/* footer */
 
 .first-line-footer {
     display: flex;
@@ -69,3 +64,22 @@ h1{
 .first-line-footer .right-section .social-icons{
     margin-top: 150px;
 }
+
+.footer-contact-list{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-item{
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+
+
+.contact-item img{
+width: 30px;
+}
+

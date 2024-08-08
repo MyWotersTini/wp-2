@@ -1,3 +1,9 @@
+<?php 
+ $phone_info = get_field('phone_info', 'options');
+ $mail_info = get_field('mail_info', 'options');
+ 
+?>
+
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
     <head>
@@ -11,8 +17,35 @@
 
         <div class="first-line-header">
             <div class="left-section">
-                <span>Телефон: <a href="tel:+123456789">+123456789</a></span>
-                <span>Email: <a href="mailto:example@example.com">example@example.com</a></span>
+            <div class="contact-item">
+                <img 
+                src="<?php echo $phone_info['icon']['url']; ?>" 
+                alt="<?php echo $phone_info['link']['title']; ?>"
+                title="<?php echo $phone_info['link']['title']; ?>"
+                >
+
+                <a 
+                    href="<?php echo $phone_info['link']['url']; ?>"
+                    target="<?php echo $phone_info['link']['target']; ?>"
+                >
+                    <?php echo $phone_info['link']['title']; ?>
+                </a>
+            </div>
+            <div class="contact-item">
+                <img 
+                src="<?php echo $mail_info['icon']['url']; ?>" 
+                alt="<?php echo $mail_info['link']['title']; ?>"
+                title="<?php echo $mail_info['link']['title']; ?>"
+                >
+
+                <a 
+                    href="<?php echo $mail_info['link']['url']; ?>"
+                    target="<?php echo $mail_info['link']['target']; ?>"
+                >
+                    <?php echo $mail_info['link']['title']; ?>
+                </a>
+            </div>
+                
             </div>
             <div class="right-section">
                 <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>

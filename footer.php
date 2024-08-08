@@ -1,11 +1,63 @@
-        <div class="first-line-footer">
+<?php
+    $map_frame = get_field('map_code', 'options');
+    
+    $phone_info = get_field('phone_info', 'options');
+    $map_info = get_field('map_info', 'options');
+    $mail_info = get_field('mail_info', 'options');
+
+?>
+
+
+<div class="first-line-footer">
             <div class="left-section">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019428827578!2d-122.41941648468106!3d37.77492927975998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809cbaa7ab5d%3A0x2e7b78e272d43c2a!2sSan+Francisco%2C+CA%2C+USA!5e0!3m2!1sen!2s!4v1510212877654" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <?php echo $map_frame; ?>
             </div>
             <div class="right-section">
-                <span>Телефон: +123456789</span>
-                <span>Email: example@example.com</span>
-                <span>Адрес: ул. Примерная, д. 1</span>
+                <div class="footer-contact-list">
+                    <div class="contact-item">
+                        <img 
+                        src="<?php echo $phone_info['icon']['url']; ?>" 
+                        alt="<?php echo $phone_info['link']['title']; ?>"
+                        title="<?php echo $phone_info['link']['title']; ?>"
+                        >
+
+                        <a 
+                            href="<?php echo $phone_info['link']['url']; ?>"
+                            target="<?php echo $phone_info['link']['target']; ?>"
+                        >
+                            <?php echo $phone_info['link']['title']; ?>
+                        </a>
+                    </div>
+                    <div class="contact-item">
+                        <img 
+                        src="<?php echo $map_info['icon']['url']; ?>" 
+                        alt="<?php echo $map_info['link']['title']; ?>"
+                        title="<?php echo $map_info['link']['title']; ?>"
+                        >
+
+                        <a 
+                            href="<?php echo $map_info['link']['url']; ?>"
+                            target="<?php echo $map_info['link']['target']; ?>"
+                        >
+                            <?php echo $map_info['link']['title']; ?>
+                        </a>
+                    </div>
+                    <div class="contact-item">
+                        <img 
+                        src="<?php echo $mail_info['icon']['url']; ?>" 
+                        alt="<?php echo $mail_info['link']['title']; ?>"
+                        title="<?php echo $mail_info['link']['title']; ?>"
+                        >
+
+                        <a 
+                            href="<?php echo $mail_info['link']['url']; ?>"
+                            target="<?php echo $mail_info['link']['target']; ?>"
+                        >
+                            <?php echo $mail_info['link']['title']; ?>
+                        </a>
+                    </div>
+                </div>
+
                 <div class="social-icons">
                     <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
