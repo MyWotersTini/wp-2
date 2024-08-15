@@ -86,6 +86,7 @@
 }
 
 .block_item .block_media img{
+    height: auto;
     width: 100%;
     box-shadow: 0 0 10px rgba(214, 2, 2, 0.623);
     border-radius: 10px;

@@ -4,7 +4,7 @@ get_header();
 
 $title      = get_the_title();
 $post_id    = get_the_ID();
-$image      = get_the_post_thumbnail_url($post_id);
+$image      = get_post_thumbnail_id($post_id);
 $date       = date('M, j Y', strtotime(get_the_date()));
 $author     = get_userdata(get_post_field('post_author', $post_id)); 
 $author     = $author->data->user_nicename;
@@ -30,11 +30,22 @@ $test_rep   = get_field('test_rep');
             </span>
         </div>
         <div class="image">
-            <img 
+        <?php 
+            echo wp_get_attachment_image(
+                $image,
+                'full', 
+                false, 
+                [
+                    'alt' => $title, 
+                    'title' => $title 
+                ]
+            );
+        ?>  
+            <!-- <img 
                 src="<?php echo $image?>" 
                 alt="<?php echo $title?>"
                 title="<?php echo $title?>"  
-            >
+            > -->
         </div>
         <div class="content">
             <?php echo get_the_content(); ?>
@@ -71,11 +82,17 @@ $test_rep   = get_field('test_rep');
 
                     <div class="block_media">
                         <div class="block_img">
-                            <img 
-                                src     ="<?php echo $item["image"]["url"] ?>" 
-                                alt     ="<?php echo $item["image"]["alt"] ?>"
-                                title   ="<?php echo $item["image"]["title"] ?>"
-                            >
+                            <?php 
+                                echo wp_get_attachment_image(
+                                    $item["image"]["ID"] ,
+                                    'full', 
+                                    false, 
+                                    [
+                                        'alt' => $item["image"]["alt"], 
+                                        'title' => $item["image"]["title"] 
+                                    ]
+                                );
+                            ?>  
                         </div>
                     </div>
                 </div>

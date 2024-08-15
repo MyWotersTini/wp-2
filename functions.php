@@ -14,11 +14,17 @@ require 'inc/add_svg.php';
 function create_contact_item($info) {
     ?>
     <div class="contact-item">
-        <img 
-        src="<?php echo $info['icon']['url']; ?>" 
-        alt="<?php echo $info['link']['title']; ?>"
-        title="<?php echo $info['link']['title']; ?>"
-        >
+        <?php 
+            echo wp_get_attachment_image(
+                $info['icon']['ID'],
+                'full', 
+                false, 
+                [
+                    'alt' => $info['link']['title'], 
+                    'title' => $info['link']['title'] 
+                ]
+            );
+        ?>  
         <a 
             href="<?php echo $info['link']['url']; ?>"
             target="<?php echo $info['link']['target']; ?>"
@@ -42,11 +48,17 @@ function social_icons($class){
                 href="<?php echo $item["link"] ?>" 
                 target="_blank"
             >
-                <img
+                <?php 
+                    echo wp_get_attachment_image($item["icon"]["ID"],'full', false,[
+                        'alt' => 'sdasdsa',
+                        'title' => 'title'
+                    ]);
+                ?>
+                <!-- <img
                     src="<?php echo $item["icon"]["url"] ?>";
                     alt="<?php echo $item["icon"]["alt"] ?>";
                     title="<?php echo $item["icon"]["title"] ?>";
-                >
+                > -->
             </a>
         <?php endforeach; ?>
     </div>

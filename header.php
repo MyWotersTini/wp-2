@@ -17,40 +17,11 @@
 
         <div class="first-line-header">
             <div class="left-section">
-            <div class="contact-item">
-                <img 
-                src="<?php echo $phone_info['icon']['url']; ?>" 
-                alt="<?php echo $phone_info['link']['title']; ?>"
-                title="<?php echo $phone_info['link']['title']; ?>"
-                >
-
-                <a 
-                    href="<?php echo $phone_info['link']['url']; ?>"
-                    target="<?php echo $phone_info['link']['target']; ?>"
-                >
-                    <?php echo $phone_info['link']['title']; ?>
-                </a>
+                <?php 
+                    create_contact_item($phone_info);  
+                    create_contact_item($mail_info);  
+                ?> 
             </div>
-            <div class="contact-item">
-                <img 
-                src="<?php echo $mail_info['icon']['url']; ?>" 
-                alt="<?php echo $mail_info['link']['title']; ?>"
-                title="<?php echo $mail_info['link']['title']; ?>"
-                >
-
-                <a 
-                    href="<?php echo $mail_info['link']['url']; ?>"
-                    target="<?php echo $mail_info['link']['target']; ?>"
-                >
-                    <?php echo $mail_info['link']['title']; ?>
-                </a>
-            </div>
-                
-            </div>
-            <div class="right-section">
-                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-            </div>
+            <?php social_icons("social-icons") ?>
         </div>
     

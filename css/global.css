@@ -29,6 +29,10 @@ h1{
     gap: 20px;
 }
 
+.first-line-header .social-icons{
+    margin: 2px;
+}
+
 /* footer */
 
 .first-line-footer {
@@ -64,7 +68,7 @@ h1{
 
 .social-icons a{
     transition: all 0.3s ease;
-    padding: 0 2px;
+    padding: 2px;
 }
 
 .social-icons a:hover{
