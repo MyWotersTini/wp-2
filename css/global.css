@@ -103,3 +103,15 @@ h1{
 width: 30px;
 }
 
+.uk-card-body .uk-card-title a{
+    color: black;
+}
+
+.uk-card-body .uk-card-title a:hover{
+    color: rgb(112, 112, 112);
+}
+
+.uk-card-media-top img{
+    max-height: 200px;
+    object-fit: cover;
+}

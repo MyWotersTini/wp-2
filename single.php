@@ -48,7 +48,7 @@ $test_rep   = get_field('test_rep');
             > -->
         </div>
         <div class="content">
-            <?php echo get_the_content(); ?>
+            <?php the_content(); ?>
         </div>
     </div>
 
@@ -101,6 +101,10 @@ $test_rep   = get_field('test_rep');
         </div>
     </div>
 <?php
+
+// echo do_shortcode('[wpforms id="73"]');
+// echo do_shortcode('[social-icons]');
+
 get_footer();
 
 ?>

@@ -17,7 +17,7 @@ $title = get_the_title();
         <hr>
         <hr>
         <div class="content">
-            <?php echo get_the_content(); ?>
+            <?php the_content(); ?>
         </div>
     </div>
 <?php

@@ -13,7 +13,7 @@ $title = get_the_title();
         </div>
     </div>
     <div class="content">
-        <?php echo get_the_content(); ?>
+        <?php the_content(); ?>
     </div>
 <?php
 get_footer();
