@@ -46,10 +46,3 @@ function social_icons($class){
 <?php
 
 }
-
-function enqueue_uikit_assets() {
-    wp_enqueue_style('uikit-css', 'https://cdn.jsdelivr.net/npm/uikit@3.16.24/dist/css/uikit.min.css');
-    wp_enqueue_script('uikit-js', 'https://cdn.jsdelivr.net/npm/uikit@3.16.24/dist/js/uikit.min.js', array('jquery'), null, true);
-    wp_enqueue_script('uikit-icons', 'https://cdn.jsdelivr.net/npm/uikit@3.16.24/dist/js/uikit-icons.min.js', array('uikit-js'), null, true);
-}
-add_action('wp_enqueue_scripts', 'enqueue_uikit_assets');
