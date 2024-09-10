@@ -1,6 +1,7 @@
 <?php 
 
 define('VERSION', '1.1.2');
+define('THEME_NAME', 'my_test_theme');
 
 // enqueue scripts and syles
 require 'inc/wp_enqueue.php';
@@ -16,6 +17,10 @@ require 'inc/functions.php';
 
 // Add Shortcodes
 require 'inc/shortcodes.php';
+
+// Add Custom Post Type
+// require 'inc/cpt.php';
+
 
 add_theme_support('post-thumbnails');
 

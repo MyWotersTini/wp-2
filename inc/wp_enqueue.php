@@ -57,6 +57,10 @@ function enqueue_custom_scripts() {
     wp_enqueue_script('uikit-icons', 'https://cdn.jsdelivr.net/npm/uikit@3.16.24/dist/js/uikit-icons.min.js', array('uikit-js'), null, true);
 
     wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+    wp_enqueue_style('event-order-style', get_template_directory_uri() . '/css/event-order.css');
+    wp_enqueue_script('event-order-script', get_template_directory_uri() . '/js/event-order.js', array('jquery'), null, true);
+    
 }
 
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');

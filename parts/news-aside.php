@@ -11,6 +11,8 @@ $query = new WP_Query(array(
 ));
 $posts_id = $query->posts;
 
+wp_reset_postdata();
+
 echo '<div class="news-list">';
 
 foreach($posts_id as $post_id){

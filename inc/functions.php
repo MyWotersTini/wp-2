@@ -44,5 +44,12 @@ function social_icons($class){
         <?php endforeach; ?>
     </div>
 <?php
+}
 
+function get_date_by_week($num){
+    $days_of_week = array(
+        'Неділя', 'Понеділок', 'Вівторок', 'Середа', 'Четвер', 'П’ятниця', 'Субота'
+    ); /* #hardcode */
+
+    return $days_of_week[$num];
 }

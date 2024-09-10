@@ -1,0 +1,65 @@
+.event-order-container {
+    padding: 20px;
+    background-color: #f0f8ff;
+}
+
+.step h2 {
+    font-size: 20px;
+    color: #007b8a;
+    margin-bottom: 10px;
+}
+
+.date-selection button, .time-selection button {
+    background-color: #e6f7ff;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.order {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.order h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.ticket-quantity button {
+    background-color: #007b8a;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.order button {
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.date-button.selected{
+    background-color: #07a9be;
+}
+
+.time-button{
+    display: none;
+}
+
+.time-button.show{
+    display: block;
+}
+
+.time-button.selected{
+    background-color: #07a9be; 
+}

@@ -3,7 +3,7 @@
 get_header();
 
 $title = get_the_title();
-$news_name = get_field('news_head');
+$news_name = get_field('news_aside_title','options');
 ?>
 
     <div class="container">

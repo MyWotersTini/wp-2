@@ -16,6 +16,9 @@ $title = get_the_title();
         <?php the_content(); ?>
     </div>
 <?php
+
+get_template_part('parts/event', 'order');
+
 get_footer();
 
 ?>
