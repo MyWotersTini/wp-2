@@ -69,8 +69,9 @@ wp_reset_postdata();
                 foreach ($order_id_list as $order_id) {
                     $event_date     = get_field('event_date', $order_id);
                     $event_times    = get_field('time_list', $order_id);
-                    foreach($event_times as $time){
-                        echo "<button class='time-button' data-date='{$event_date}' data-price='{$time['price']}' data-count='{$time['tickets_count']}' data-order='{$order_id}'>{$time['time']}</button>";
+                    foreach($event_times as $key => $time){
+                        $max_ticket_count   = min(10, $time['tickets_count']);
+                        echo "<button class='time-button' data-date='{$event_date}' data-price='{$time['price']}' data-count='{$max_ticket_count}' data-order='{$order_id}' data-order-time='{$key}'>{$time['time']}</button>";
                     }
                 }
             } else {
@@ -83,15 +84,36 @@ wp_reset_postdata();
 
     <!-- Offer -->
     <div class="order">
-        <h3>ЗАМОВЛЕННЯ</h3>
-        <p id="selected-date">Выберите дату и время</p>
-        <div class="ticket-quantity">
-            <button id="decrease-quantity">-</button>
-            <input type="number" id="ticket-count" value="1" min="1" />
-            <button id="increase-quantity">+</button>
+        <div class="order-header">
+            <h3>ЗАМОВЛЕННЯ</h3>
         </div>
-        <p id="total-price"></p>
-        <button id="confirm-order">Замовлення підтверджую</button>
+
+        <div class="order-content">
+            <div class="order-line">
+                <label for="ticket-count">Count of tickets</label>
+                <div class="ticket-quantity">
+                    <button id="decrease-quantity">-</button>
+                    <input type="number" id="ticket-count" value="1" min="1"/>
+                    <button id="increase-quantity">+</button>
+                </div>
+                <p id="total-price"></p>
+            </div>
+
+            <div class="order-line">
+                <label for="user_name">Name, SecondName</label><br>
+                <input type="text" class="Name" placeholder="Ivan" id="user_name">
+            </div>
+            
+            <div class="order-line">
+                <label for="user_mail">Your mail</label><br>
+                <input type="text" class="email" placeholder="1234@gmail.com" id="user_mail">
+            </div> 
+
+        </div>
+
+        <div class="order-footer">
+            <button id="confirm-order">Замовлення підтверджую</button>
+        </div>
     </div>
 </div>
 

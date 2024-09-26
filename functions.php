@@ -18,6 +18,9 @@ require 'inc/functions.php';
 // Add Shortcodes
 require 'inc/shortcodes.php';
 
+// Add Ajax functions
+require 'inc/ajax.php';
+
 // Add Custom Post Type
 // require 'inc/cpt.php';
 
