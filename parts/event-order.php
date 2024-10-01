@@ -70,8 +70,12 @@ wp_reset_postdata();
                     $event_date     = get_field('event_date', $order_id);
                     $event_times    = get_field('time_list', $order_id);
                     foreach($event_times as $key => $time){
-                        $max_ticket_count   = min(10, $time['tickets_count']);
-                        echo "<button class='time-button' data-date='{$event_date}' data-price='{$time['price']}' data-count='{$max_ticket_count}' data-order='{$order_id}' data-order-time='{$key}'>{$time['time']}</button>";
+                        // Получаем оставшиеся билеты
+                        $remaining_tickets = get_remaining_tickets($order_id, $key);
+
+                        if ($remaining_tickets > 0) {
+                            echo "<button class='time-button' data-date='{$event_date}' data-price='{$time['price']}' data-count='{$remaining_tickets}' data-order='{$order_id}' data-order-time='{$key}'>{$time['time']} (Осталось билетов: {$remaining_tickets})</button>";
+                        }
                     }
                 }
             } else {

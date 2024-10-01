@@ -56,30 +56,36 @@ function create_order() {
         return;
     }
 
-    
+    $time_id = $data_key; 
+    // закинул расчет цены в отдельную переменную
+    $price = $ticketCount * $event_times[$data_key]['price']; 
 
+    // Створення нового посту (ордера)
     $new_post = array(
-        'post_title'   => 'New title', // Valid post name
-        'post_status'  => 'publish', // Unslashed post data - Set the status of the new post to 'publish'
-        'post_author'  => 1, // Replace with the desired author's user ID
-        'post_type'    => 'orders',
+        'post_title'   => 'New title', 
+        'post_status'  => 'publish',   
+        'post_author'  => 1,          
+        'post_type'    => 'orders',    
     );
     $post_id = wp_insert_post($new_post, true);
-    if($post_id){
+
+    if ($post_id) {
         $args = array(
             'ID'            => $post_id,
-            'post_title'    => "#" . $post_id . " | " .  date('Y-m-d H:i:s') . ' | ' . $ticketCount . ' Ticket(s) | ' . $userMail, 
+            'post_title'    => "#" . $post_id . " | " . date('Y-m-d H:i:s') . ' | ' . $ticketCount . ' Ticket(s) | ' . $userMail,
         );
         wp_update_post($args);
         
-        update_post_meta($post_id, 'client_name',  $userName);
-        update_post_meta($post_id, 'ticket_count',  $ticketCount);
-        update_post_meta($post_id, 'client_email',  $userMail);
-        update_post_meta($post_id, 'total_price',  $ticketCount*$event_times[$data_key]['price']);
-        update_post_meta($post_id, 'payment_status',  'pending');
+        update_post_meta($post_id, 'client_name', $userName);                   
+        update_post_meta($post_id, 'ticket_count', $ticketCount);              
+        update_post_meta($post_id, 'client_email', $userMail);                    
+        update_post_meta($post_id, 'total_price', $price);                         
+        update_post_meta($post_id, 'payment_status', 'pending');                
+
+        // Event ID Time ID
+        update_post_meta($post_id, 'event_id', $event_id);                         
+        update_post_meta($post_id, 'time_id', $time_id);                         
     }
-
-
 
     wp_send_json_success(['message' => 'Замовлення успішно створено']);
 }
