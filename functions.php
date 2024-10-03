@@ -21,6 +21,8 @@ require 'inc/shortcodes.php';
 // Add Ajax functions
 require 'inc/ajax.php';
 
+require 'inc/acf_settings.php';
+
 // Add Custom Post Type
 // require 'inc/cpt.php';
 

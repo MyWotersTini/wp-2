@@ -18,6 +18,7 @@
         <div class="first-line-header">
             <div class="left-section">
                 <?php 
+                    echo do_shortcode('[gtranslate]');
                     create_contact_item($phone_info);  
                     create_contact_item($mail_info);  
                 ?> 
